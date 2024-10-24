@@ -1,3 +1,6 @@
+<?php
+defined('BASEPATH') or exit('No direct script access allowed');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,11 +19,19 @@
 		}
 
 		.container-fluid {
-			padding: 20px 30px;
+			padding: 15px 25px;
+			max-width: 1440px;
+			margin: 0 auto;
+			background-color: #F4F4F4;
 		}
+
 
 		.position-relative {
 			position: relative;
+		}
+
+		.card:hover {
+			box-shadow: 0px 0px 30px 0px #0000002E;
 		}
 
 		.card-radius .card-img-top {
@@ -34,12 +45,10 @@
 			border-radius: 15px;
 			overflow: hidden;
 			height: 100%;
-			/* Ensure the card stretches to its container height */
 		}
 
 		.card-body {
 			flex-grow: 1;
-			/* Allow the body to expand to fill the available space */
 			display: flex;
 			flex-direction: column;
 			justify-content: space-between;
@@ -48,23 +57,25 @@
 		.line-clamp {
 			display: -webkit-box;
 			-webkit-line-clamp: 2;
-			/* Max number of lines for the description */
 			-webkit-box-orient: vertical;
 			overflow: hidden;
 		}
 
 		.card-title {
 			-webkit-line-clamp: 1;
-			/* Max 1 line for title */
 			display: -webkit-box;
 			-webkit-box-orient: vertical;
 			overflow: hidden;
 			text-overflow: ellipsis;
+			font-size: medium;
 		}
 
 		.card-text {
+			font: 'Lato';
 			flex-grow: 1;
-			/* Let the text take up space */
+			font-weight: 400;
+			font-size: 12px;
+			color: #666666;
 			overflow: hidden;
 		}
 
@@ -79,15 +90,16 @@
 
 		.discount-badge {
 			position: absolute;
-			top: 30px;
+			top: 25px;
 			left: 0px;
+			gap: 0px;
 			background-color: red;
 			padding: 5px 10px;
 			font-size: 12px;
 			font-weight: bold;
 			color: white;
-			border-radius: 0 25px 25px 0;
-			width: 60px;
+			border-radius: 0px 12.39px 12.39px 0px;
+			width: Fixed (42.71px)px;
 		}
 
 		.new-badge {
@@ -107,20 +119,18 @@
 			background: linear-gradient(180deg, #006764 0%, #015C59 100%);
 			color: white;
 			text-decoration: none;
-			padding: 6px 20px;
-			/* Adjust padding for a comfortable button size */
+			padding: 6px 25px;
 			border-radius: 25px;
-			font-size: 16px;
-			font-weight: bold;
+			font-size: 14px;
+			font-weight: 600;
 			display: inline-block;
-			/* Allow setting a width */
 			width: 100%;
-			/* Control button width to fit well within the card */
+			max-width: 200px;
 			text-align: center;
 			transition: all 0.3s ease;
 			margin: 0 auto;
-			/* Center the button horizontally */
 		}
+
 
 		.btn-detail:hover {
 			background: linear-gradient(180deg, #FFB800 0%, #EDAB00 100%);
@@ -156,6 +166,10 @@
 			top: 10px;
 		}
 
+		.box-sidebar:hover {
+			box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+		}
+
 		.custom-label {
 			position: absolute;
 			bottom: 12px;
@@ -170,8 +184,12 @@
 			z-index: 2;
 		}
 
-		/* Display the icon only on mobile view */
+		/* Sticky button untuk Mobile View Pilihan Layanan */
 		@media (max-width: 768px) and (max-width: 991px) {
+			.container-fluid {
+				background-color: #F4F4F4;
+			}
+
 			#sticky-icon {
 				display: block;
 				position: fixed;
@@ -227,6 +245,7 @@
 
 			.btn-detail {
 				font-size: 13px;
+				width: 200px;
 			}
 		}
 
@@ -236,7 +255,7 @@
 			}
 		}
 
-		/* Transition effect for modal */
+		/* Transition effect modal */
 		.modal.fade .modal-dialog {
 			transition: transform 0.3s ease-out;
 		}
@@ -263,11 +282,17 @@
 						<p class="mb-3 fw-bold">Pilih Jenis Layanan</p>
 					</span>
 
-					<div class="px-3">
+					<!-- <div class="px-3">
 						<label class="form-check-label" style="padding-left: 5px;" for="all">All</label>
 						<input class="form-check-input me-1 radio-service" type="radio" name="service_options" id="all" value="all">
-					</div>
+					</div> -->
 					<div class="accordion-flush" id="accordionLayanan">
+						<div class="accordion-item">
+							<div class="accordion-header px-3">
+								<label class="form-check-label" style="padding-left: 5px;" for="all">All</label>
+								<input class="form-check-input me-1 radio-service" type="radio" name="service_options" id="all" value="all">
+							</div>
+						</div>
 						<div class="accordion-item">
 							<h2 class="accordion-header" id="headingOne">
 								<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">

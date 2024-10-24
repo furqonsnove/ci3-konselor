@@ -16,7 +16,10 @@
 		}
 
 		.container-fluid {
-			padding: 20px 30px;
+			padding: 15px 25px;
+			max-width: 1440px;
+			margin: 0 auto;
+			background-color: #F4F4F4;
 		}
 
 		.position-relative {

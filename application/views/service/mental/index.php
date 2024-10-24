@@ -16,11 +16,18 @@
 		}
 
 		.container-fluid {
-			padding: 20px 30px;
+			padding: 15px 25px;
+			max-width: 1440px;
+			margin: 0 auto;
+			background-color: #F4F4F4;
 		}
 
 		.position-relative {
 			position: relative;
+		}
+
+		.card:hover {
+			box-shadow: 0px 0px 30px 0px #0000002E;
 		}
 
 		.card-radius .card-img-top {
@@ -34,12 +41,10 @@
 			border-radius: 15px;
 			overflow: hidden;
 			height: 100%;
-			/* Ensure the card stretches to its container height */
 		}
 
 		.card-body {
 			flex-grow: 1;
-			/* Allow the body to expand to fill the available space */
 			display: flex;
 			flex-direction: column;
 			justify-content: space-between;
@@ -48,23 +53,25 @@
 		.line-clamp {
 			display: -webkit-box;
 			-webkit-line-clamp: 2;
-			/* Max number of lines for the description */
 			-webkit-box-orient: vertical;
 			overflow: hidden;
 		}
 
 		.card-title {
 			-webkit-line-clamp: 1;
-			/* Max 1 line for title */
 			display: -webkit-box;
 			-webkit-box-orient: vertical;
 			overflow: hidden;
 			text-overflow: ellipsis;
+			font-size: large;
 		}
 
 		.card-text {
+			font: 'Lato';
 			flex-grow: 1;
-			/* Let the text take up space */
+			font-weight: 400;
+			font-size: 12px;
+			color: #666666;
 			overflow: hidden;
 		}
 
@@ -79,15 +86,16 @@
 
 		.discount-badge {
 			position: absolute;
-			top: 30px;
+			top: 25px;
 			left: 0px;
+			gap: 0px;
 			background-color: red;
 			padding: 5px 10px;
 			font-size: 12px;
 			font-weight: bold;
 			color: white;
-			border-radius: 0 25px 25px 0;
-			width: 60px;
+			border-radius: 0px 12.39px 12.39px 0px;
+			width: Fixed (42.71px)px;
 		}
 
 		.new-badge {
@@ -107,19 +115,16 @@
 			background: linear-gradient(180deg, #006764 0%, #015C59 100%);
 			color: white;
 			text-decoration: none;
-			padding: 6px 20px;
-			/* Adjust padding for a comfortable button size */
+			padding: 6px 25px;
 			border-radius: 25px;
-			font-size: 16px;
-			font-weight: bold;
+			font-size: 14px;
+			font-weight: 600;
 			display: inline-block;
-			/* Allow setting a width */
 			width: 100%;
-			/* Control button width to fit well within the card */
+			max-width: 200px;
 			text-align: center;
 			transition: all 0.3s ease;
 			margin: 0 auto;
-			/* Center the button horizontally */
 		}
 
 		.btn-detail:hover {
@@ -154,6 +159,10 @@
 			transition: transform 0.6s ease;
 			position: sticky;
 			top: 10px;
+		}
+
+		.box-sidebar:hover {
+			box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 		}
 
 		.custom-label {
