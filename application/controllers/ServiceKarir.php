@@ -132,10 +132,13 @@ class ServiceKarir extends CI_Controller
 				"title" => "Pengembangan Diri",
 				"content" =>
 				[
-					["label" => "Dorongan Bunuh Diri", "id" => "support1", "value" => "support1"],
-					["label" => "Gangguan Tidur", "id" => "support2", "value" => "support2"]
+					["label" => "Ambil Keputusan Terbaik", "id" => "support1", "value" => "support1"],
+					["label" => "Sulit Menerima Masa Lalu", "id" => "support2", "value" => "support2"],
+					["label" => "Kesulitan Bersosialisasi", "id" => "support3", "value" => "support3"],
+					["label" => "Mengubah Kebiasaan", "id" => "support4", "value" => "support4"],
+					["label" => "Manajemen Waktu", "id" => "support5", "value" => "support5"]
 				],
-				"expanded" => false
+				"expanded" => true
 			],
 		];
 

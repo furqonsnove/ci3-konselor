@@ -30,6 +30,10 @@
 			border-radius: 15px 15px 0 0;
 		}
 
+		.card:hover {
+			box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+		}
+
 		.card-radius {
 			display: flex;
 			flex-direction: column;
@@ -37,12 +41,10 @@
 			border-radius: 15px;
 			overflow: hidden;
 			height: 100%;
-			/* Ensure the card stretches to its container height */
 		}
 
 		.card-body {
 			flex-grow: 1;
-			/* Allow the body to expand to fill the available space */
 			display: flex;
 			flex-direction: column;
 			justify-content: space-between;
@@ -50,24 +52,26 @@
 
 		.line-clamp {
 			display: -webkit-box;
-			-webkit-line-clamp: 2;
-			/* Max number of lines for the description */
+			-webkit-line-clamp: 1;
 			-webkit-box-orient: vertical;
 			overflow: hidden;
 		}
 
 		.card-title {
-			-webkit-line-clamp: 1;
-			/* Max 1 line for title */
+			-webkit-line-clamp: 2;
 			display: -webkit-box;
 			-webkit-box-orient: vertical;
 			overflow: hidden;
 			text-overflow: ellipsis;
+			font-size: large;
 		}
 
 		.card-text {
+			font: 'Lato';
 			flex-grow: 1;
-			/* Let the text take up space */
+			font-weight: 400;
+			font-size: 12px;
+			color: #666666;
 			overflow: hidden;
 		}
 
@@ -110,19 +114,16 @@
 			background: linear-gradient(180deg, #006764 0%, #015C59 100%);
 			color: white;
 			text-decoration: none;
-			padding: 6px 20px;
-			/* Adjust padding for a comfortable button size */
+			padding: 6px 25px;
 			border-radius: 25px;
-			font-size: 16px;
-			font-weight: bold;
+			font-size: 14px;
+			font-weight: 600;
 			display: inline-block;
-			/* Allow setting a width */
 			width: 100%;
-			/* Control button width to fit well within the card */
+			max-width: 200px;
 			text-align: center;
 			transition: all 0.3s ease;
 			margin: 0 auto;
-			/* Center the button horizontally */
 		}
 
 		.btn-detail:hover {
@@ -157,6 +158,10 @@
 			transition: transform 0.6s ease;
 			position: sticky;
 			top: 10px;
+		}
+
+		.box-sidebar:hover {
+			box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 		}
 
 		.custom-label {
@@ -328,7 +333,7 @@
 									<h5 class="card-title mt-2"><?= $service['title']; ?></h5>
 									<p class="card-text line-clamp"><?= $service['description']; ?></p>
 									<div class="d-grid">
-										<a href="<?= base_url('service/psikotes/detail'); ?>" class="btn-detail rounded-pill">Lihat Detail</a>
+										<a href="#" class="btn-detail rounded-pill">Lihat Detail</a>
 									</div>
 								</div>
 							</div>
@@ -411,21 +416,21 @@
 			var myModal = new bootstrap.Modal(document.getElementById('serviceModal'));
 			myModal.show();
 		}
-		document.addEventListener('DOMContentLoaded', function() {
-			const cards = document.querySelectorAll('.card-body');
 
-			cards.forEach(card => {
-				const title = card.querySelector('.card-title');
-				const text = card.querySelector('.card-text');
+		$(document).ready(function() {
+			$('.card').each(function() {
+				var title = $(this).find('.card-title');
+				var text = $(this).find('.card-text');
 
-				const titleHeight = title.scrollHeight;
-				const textHeight = text.scrollHeight;
-				const totalHeight = titleHeight + textHeight;
+				var lineHeight = parseInt(title.css('line-height'));
+				var height = title[0].scrollHeight;
+				var lines = Math.round(height / lineHeight);
 
-				const maxTotalHeight = parseInt(getComputedStyle(title).lineHeight) * 3;
-
-				if (totalHeight > maxTotalHeight) {
-					text.style.webkitLineClamp = '1';
+				// Jika card-title 1 line maka beri card-text maksimal 2 baris 
+				if (lines === 1) {
+					text.css('-webkit-line-clamp', '2');
+				} else {
+					text.css('-webkit-line-clamp', '1');
 				}
 			});
 		});

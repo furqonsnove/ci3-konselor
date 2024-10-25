@@ -1,3 +1,6 @@
+<?php
+defined('BASEPATH') or exit('No direct script access allowed');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -431,7 +434,7 @@
 				const maxTotalHeight = parseInt(getComputedStyle(title).lineHeight) * 3;
 
 				if (totalHeight > maxTotalHeight) {
-					text.style.webkitLineClamp = '1';
+					text.style.webkitLineClamp = '2';
 				}
 			});
 		});

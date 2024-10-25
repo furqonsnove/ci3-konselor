@@ -56,5 +56,7 @@ $route['service/mental'] = 'servicemental/index';
 $route['service/mental/detail'] = 'servicemental/detail';
 $route['service/karir'] = 'servicekarir/index';
 $route['service/karir/detail'] = 'servicekarir/detail';
+$route['user/profile'] = 'profile/index';
+// $route['user/detail'] = 'profile/detail';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

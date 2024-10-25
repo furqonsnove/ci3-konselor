@@ -188,6 +188,57 @@ class ServiceMental extends CI_Controller
 
 	public function detail()
 	{
-		$this->load->view('service/mental/detail');
+		$data['services'] = [
+			[
+				'img_src' => base_url('public/assets/images/user/user1.svg'),
+				'label' => 'Psikolog',
+				'title' => 'Dr. Dian Ratnasari, M.Psi',
+				'description' => 'Psikolog Anak dan Remaja',
+			],
+			[
+				'img_src' => base_url('public/assets/images/user/user2.svg'),
+				'label' => 'Psikolog',
+				'title' => 'Dr. Andi Pratama, M.Psi',
+				'description' => 'Psikolog Klinis',
+			],
+			[
+				'img_src' => base_url('public/assets/images/user/user3.svg'),
+				'label' => 'Psikolog% OFF',
+				'title' => 'Imawati Rizka, M.Psi',
+				'description' => 'Psikolog Keluarga',
+			],
+			[
+				'img_src' => base_url('public/assets/images/user/user4.svg'),
+				'label' => 'Psikolog',
+				'title' => 'Dr. Budi Santoso, Sp.KJ',
+				'description' => 'Spesialis Psikiatri',
+			],
+			[
+				'img_src' => base_url('public/assets/images/user/user1.svg'),
+				'label' => 'Psikolog% OFF',
+				'title' => 'Dr. Rina Putri, M.Psi',
+				'description' => 'Psikolog Pendidikan',
+			],
+			[
+				'img_src' => base_url('public/assets/images/user/user2.svg'),
+				'label' => 'Psikolog',
+				'title' => 'Ari Nugraha, S.Psi, M.Si, Konselor',
+				'description' => 'Konselor Perkembangan Remaja',
+			],
+			[
+				'img_src' => base_url('public/assets/images/user/user3.svg'),
+				'label' => 'Psikolog',
+				'title' => 'Dr. Hanifah Syamsul, M.Psi',
+				'description' => 'Psikolog Perkembangan',
+			],
+			[
+				'img_src' => base_url('public/assets/images/user/user4.svg'),
+				'label' => 'Psikolog',
+				'title' => 'Sri Handayani, M.Psi',
+				'description' => 'Psikolog Klinis Dewasa',
+			]
+		];
+
+		$this->load->view('service/mental/detail', $data);
 	}
 }
