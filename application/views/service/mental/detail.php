@@ -9,6 +9,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
 	<title>Konseling Game</title>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+	<!-- Bootstrap Icons CDN -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
 	<style>
 		body {
 			background: #f4f4f4;
@@ -119,6 +122,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 		/* List psikolog dan konselor style */
 
+		.card:hover {
+			box-shadow: 0px 0px 30px 0px #0000002E;
+		}
+
 		.card-radius .card-img-top {
 			border-radius: 15px 15px 0 0;
 		}
@@ -137,6 +144,27 @@ defined('BASEPATH') or exit('No direct script access allowed');
 			display: flex;
 			flex-direction: column;
 			justify-content: space-between;
+		}
+
+		.card-title {
+			font-family: 'Lato', sans-serif;
+			-webkit-line-clamp: 1;
+			display: -webkit-box;
+			-webkit-box-orient: vertical;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			font-size: medium;
+			font-weight: 700;
+			font-size: 16px;
+		}
+
+		.card-text {
+			font: 'Lato';
+			flex-grow: 1;
+			font-weight: 400;
+			font-size: 12px;
+			color: #666666;
+			overflow: hidden;
 		}
 
 		.d-grid {
@@ -174,6 +202,81 @@ defined('BASEPATH') or exit('No direct script access allowed');
 			width: 60px;
 		}
 
+		.badges-container {
+			display: flex;
+			justify-content: start;
+			gap: 10px;
+			margin-bottom: 10px;
+		}
+
+		/* Experience Badge */
+		.exp-badge {
+			display: flex;
+			align-items: center;
+			padding: 4px 10px;
+			gap: 5px;
+			font-size: 14px;
+			background: linear-gradient(180deg, rgba(255, 184, 0, 0.1) 0%, rgba(231, 167, 0, 0.1) 100%);
+			color: #000;
+			border-radius: 5px;
+			font-family: 'Lato', sans-serif;
+			font-weight: 400;
+		}
+
+		/* Like Badge */
+		.like-badge {
+			display: flex;
+			align-items: center;
+			padding: 4px 10px;
+			gap: 5px;
+			font-size: 14px;
+			background: linear-gradient(90deg, rgba(210, 62, 128, 0.1) 0%, rgba(151, 53, 123, 0.1) 100%);
+			color: #800080;
+			border-radius: 5px;
+			font-family: 'Lato', sans-serif;
+			font-weight: 700;
+		}
+
+		/* Icon Styles */
+		.exp-badge i {
+			color: linear-gradient(180deg, #FFB800 0%, #E7A700 100%);
+			font-size: 16px;
+		}
+
+		.like-badge i {
+			font-size: 16px;
+			color: linear-gradient(90deg, #D23E80 0%, #97357B 100%);
+		}
+
+		/* Online and Offline Badge */
+		.status-badge {
+			position: absolute;
+			top: 20px;
+			right: 20px;
+			padding: 2px 10px;
+			border-radius: 20px;
+			font-size: 12px;
+			font-weight: 700;
+			font-family: 'Lato', sans-serif;
+			display: flex;
+			align-items: center;
+			gap: 5px;
+			background: #FFFFFF80;
+			backdrop-filter: blur(4px);
+		}
+
+		.status-badge i {
+			font-size: 10px;
+		}
+
+		.online-status {
+			color: #009E55;
+		}
+
+		.offline-status {
+			color: #DC3545;
+		}
+
 		.btn-detail {
 			background: linear-gradient(180deg, #006764 0%, #015C59 100%);
 			color: white;
@@ -204,10 +307,14 @@ defined('BASEPATH') or exit('No direct script access allowed');
 			color: #fff;
 			border-radius: 20px;
 			padding: 5px 15px 5px 15px;
-			font-size: 12px;
-			font-weight: 500;
 			opacity: 1;
 			z-index: 2;
+			font-family: 'Lato', sans-serif;
+			font-size: 10px;
+			font-weight: 900;
+			line-height: 16px;
+			text-align: left;
+
 		}
 
 		@media (max-width: 768px) {
@@ -253,6 +360,17 @@ defined('BASEPATH') or exit('No direct script access allowed');
 			.text-section {
 				text-align: center;
 				margin-top: 20px;
+			}
+
+			.exp-badge,
+			.like-badge {
+				font-size: 12px;
+				padding: 3px 8px;
+			}
+
+			.exp-badge i,
+			.like-badge i {
+				font-size: 14px;
 			}
 		}
 	</style>
@@ -300,11 +418,25 @@ defined('BASEPATH') or exit('No direct script access allowed');
 					<div class="card card-radius">
 						<div class="position-relative">
 							<img src="<?= $service['img_src']; ?>" class="card-img-top" alt="Layanan Image">
+							<span class="badge bg-danger discount-badge"><?= $service['badge']['discount']; ?></span>
+							<span class="badge bg-warning new-badge"><?= $service['badge']['new']; ?></span>
 							<div class="custom-label"><?= $service['label']; ?></div>
+							<div class="status-badge">
+								<i class="bi bi-circle-fill <?= $service['status'] === 'online' ? 'online-status' : 'offline-status'; ?>"></i>
+								<?= ucfirst($service['status']); ?>
+							</div>
 						</div>
 						<div class="card-body">
-							<h5 class="card-title mt-2"><?= $service['title']; ?></h5>
+							<h5 class="card-title"><?= $service['title']; ?></h5>
 							<p class="card-text line-clamp"><?= $service['description']; ?></p>
+							<div class="badges-container">
+								<div class="exp-badge">
+									<i class="bi bi-briefcase-fill"></i> <?= $service['experience']; ?> Tahun
+								</div>
+								<div class="like-badge">
+									<i class="bi bi-hand-thumbs-up-fill"></i> <?= $service['like_percentage']; ?>%
+								</div>
+							</div>
 							<div class="d-grid">
 								<a href="<?= base_url('user/detail'); ?>" class="btn-detail rounded-pill">Lihat Detail</a>
 							</div>

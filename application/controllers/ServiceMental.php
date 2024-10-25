@@ -194,48 +194,80 @@ class ServiceMental extends CI_Controller
 				'label' => 'Psikolog',
 				'title' => 'Dr. Dian Ratnasari, M.Psi',
 				'description' => 'Psikolog Anak dan Remaja',
+				'badge' => ['discount' => '5% OFF', 'new' => 'NEW!'],
+				'experience' => '18',
+				'like_percentage' => '90',
+				'status' => 'online'
 			],
 			[
 				'img_src' => base_url('public/assets/images/user/user2.svg'),
 				'label' => 'Psikolog',
 				'title' => 'Dr. Andi Pratama, M.Psi',
 				'description' => 'Psikolog Klinis',
+				'badge' => ['discount' => '5% OFF', 'new' => 'NEW!'],
+				'experience' => '18',
+				'like_percentage' => '90',
+				'status' => 'online'
 			],
 			[
 				'img_src' => base_url('public/assets/images/user/user3.svg'),
-				'label' => 'Psikolog% OFF',
+				'label' => 'Psikolog',
 				'title' => 'Imawati Rizka, M.Psi',
 				'description' => 'Psikolog Keluarga',
+				'badge' => ['discount' => '5% OFF', 'new' => 'NEW!'],
+				'experience' => '18',
+				'like_percentage' => '90',
+				'status' => 'online'
 			],
 			[
 				'img_src' => base_url('public/assets/images/user/user4.svg'),
 				'label' => 'Psikolog',
 				'title' => 'Dr. Budi Santoso, Sp.KJ',
 				'description' => 'Spesialis Psikiatri',
+				'badge' => ['discount' => '5% OFF', 'new' => 'NEW!'],
+				'experience' => '18',
+				'like_percentage' => '90',
+				'status' => 'online'
 			],
 			[
 				'img_src' => base_url('public/assets/images/user/user1.svg'),
-				'label' => 'Psikolog% OFF',
+				'label' => 'Psikolog',
 				'title' => 'Dr. Rina Putri, M.Psi',
 				'description' => 'Psikolog Pendidikan',
+				'badge' => ['discount' => '5% OFF', 'new' => 'NEW!'],
+				'experience' => '18',
+				'like_percentage' => '90',
+				'status' => 'offline'
 			],
 			[
 				'img_src' => base_url('public/assets/images/user/user2.svg'),
 				'label' => 'Psikolog',
 				'title' => 'Ari Nugraha, S.Psi, M.Si, Konselor',
 				'description' => 'Konselor Perkembangan Remaja',
+				'badge' => ['discount' => '5% OFF', 'new' => 'NEW!'],
+				'experience' => '18',
+				'like_percentage' => '90',
+				'status' => 'offline'
 			],
 			[
 				'img_src' => base_url('public/assets/images/user/user3.svg'),
 				'label' => 'Psikolog',
 				'title' => 'Dr. Hanifah Syamsul, M.Psi',
 				'description' => 'Psikolog Perkembangan',
+				'badge' => ['discount' => '5% OFF', 'new' => 'NEW!'],
+				'experience' => '18',
+				'like_percentage' => '90',
+				'status' => 'offline'
 			],
 			[
 				'img_src' => base_url('public/assets/images/user/user4.svg'),
 				'label' => 'Psikolog',
 				'title' => 'Sri Handayani, M.Psi',
 				'description' => 'Psikolog Klinis Dewasa',
+				'badge' => ['discount' => '5% OFF', 'new' => 'NEW!'],
+				'experience' => '18',
+				'like_percentage' => '90',
+				'status' => 'offline'
 			]
 		];
 
